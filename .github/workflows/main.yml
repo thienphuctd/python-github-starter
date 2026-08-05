@@ -1,0 +1,20 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch: # Cho phép bấm nút chạy thủ công
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lấy mã nguồn từ Repository
+        uses: actions/checkout@v3
+
+      - name: Cài đặt môi trường Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Chạy file main.py
+        run: python main.py
